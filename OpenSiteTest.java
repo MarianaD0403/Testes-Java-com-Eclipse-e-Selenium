@@ -20,11 +20,14 @@ class OpenSiteTest {
 
 	@AfterEach
 	void tearDown() throws Exception {
+		driver.quit();
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void test() throws InterruptedException {
+		driver.get("http://localhost/mary/?");
+	assertTrue ("Titulo da página difere do esperado", driver.getTitle().contentEquals("Login"));
+		Thread.sleep(3000);
 	}
-
 }
+
